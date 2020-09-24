@@ -1,0 +1,31 @@
+body{
+    background-image: url('/images/1.jpg');
+    background-size: 100%;
+    background-attachment: fixed;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+@media (min-width: 768px){
+    body{
+        background-image: url('/images/1.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: 0 -1000px;
+        background-repeat: no-repeat;
+    }
+}
+
+.mes{
+    position: relative;
+    max-width: 500px;
+    border: 1px solid rgb(44, 44, 44);
+    border-radius: 5px;
+    background-color: rgb(255, 255, 27);
+    margin: 10px;
+    padding: 10px;
+};
+
+#time{
+    float: right;
+    color: red;
+};

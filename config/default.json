@@ -1,0 +1,4 @@
+{
+    "mongoUrl": "mongodb://localhost/onlineChat",
+    "mongoUrlErrors": "mongodb://localhost/onlineChatErrors"
+}

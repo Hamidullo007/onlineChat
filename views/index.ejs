@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamidullo Mirzaikromov</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/index/css/main.css">
+</head>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery-3.2.1.min.js"></script>
+<body>
+    <div style="position: fixed; bottom: 2px; right: 2px; z-index: 3;">
+        <div class="btn-group-vertical" >
+            <input type="button" value="U" onclick="up()" class="btn btn-info">
+            <input type="button" value="D" onclick="down()" class="btn btn-info">
+        </div>
+    </div>
+    <div class="container pb-2" style="background-color: rgba(0, 0, 0, 0.589);">
+           
+        <%if(messages){%>
+        <%let date;%>
+        <%messages.forEach(mess => {%>
+        <%if(mess.user == username){%>
+        <div class="mes" style="margin-left: 45%; background-color: rgb(38, 248, 255);">
+            <b><%=mess.user%></b>
+            <p><%=mess.message%></p>
+            <%date = mess.date;%>
+            <%date = `${date.getFullYear()}.${date.getMonth()}.${date.getDay()}//${date.getHours()}:${date.getMinutes()}`;%>
+            <small><%=date%></small>
+        </div>
+        <%} else {%>
+        <div class="mes" style="margin-right: 45%;">
+            <b>**<%=mess.user%></b>
+            <p><%=mess.message%></p>
+            <%date = mess.date;%>
+            <%date = `${date.getFullYear()}.${date.getMonth()}.${date.getDay()}//${date.getHours()}:${date.getMinutes()}`;%>
+            <small><%=date%></small>
+        </div>
+        <%}%>
+    <%})%>
+    <form action="/api/messages" method="post" class="form-group">
+    <input type="text" name="user" value="<%=username%>" style="visibility: hidden;">
+    <input type="text" name="message" class="form-control" placeholder="Input message...">
+    <input type="submit" class="form-control btn btn-success w-100 mt-2" value="Jo'natish">
+    </form>
+    <%}%>
+   
+    </div>
+</body>
+<script>
+    function up(){
+        $('html, body').animate({
+            scrollTop: 0
+        }, 1000);
+    }
+    function down(){
+        console.log($('body').innerHeight());
+        $('html, body').animate({
+            scrollTop: $('body').innerHeight()
+        }, 1000);
+    }
+    $('html, body').animate({
+            scrollTop: $('body').innerHeight()
+    });
+</script>
+</html>
